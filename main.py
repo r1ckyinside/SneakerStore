@@ -22,7 +22,6 @@ async def some_route(request: Request):
     return templates.TemplateResponse("main.html", {"request": request, })
 
 
-@app.get("/sql/db.db")
 def get_items():
     connection = sqlite3.connect('sql/db.db')
     cursor = connection.cursor()
@@ -50,5 +49,5 @@ def get_items():
         item.price = rows[i][6]
         item.city = rows[i][7]
         item.photo = rows[i][8]
-
     return item
+
